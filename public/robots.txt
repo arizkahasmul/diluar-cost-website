@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://diluar-cost-website.pages.dev/sitemap.xml
+Sitemap: https://diluarcost.pages.dev/sitemap.xml
