@@ -1,0 +1,4 @@
+node_modules/
+api-backend/node_modules/
+api-backend/data/
+.DS_Store
