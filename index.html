@@ -414,10 +414,41 @@
     }
     .pawn-flow-step strong { display: block; font-size: 17px; }
     .pawn-flow-step small { display: block; margin-top: 3px; color: var(--muted); }
+    .portfolio-copy-flow {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+    .portfolio-copy-flow .eyebrow { font-size: 11px; }
+    .pawn-flow-list.compact {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+    .pawn-flow-list.compact .pawn-flow-step {
+      grid-template-columns: 1fr;
+      gap: 6px;
+      text-align: center;
+      padding: 14px 10px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      background: rgba(255,255,255,.04);
+      border-top: 3px solid transparent;
+      border-image: linear-gradient(90deg, var(--cyan), var(--pink)) 1;
+      border-image-slice: 3 0 0 0;
+    }
+    .pawn-flow-list.compact .pawn-flow-step > span { font-size: 22px; }
+    .pawn-flow-list.compact .pawn-flow-step strong { font-size: 13px; }
+    .pawn-flow-list.compact .pawn-flow-step small { font-size: 11px; line-height: 1.4; }
+
     @media (max-width: 920px) {
       .portfolio-showcase-grid,
       .portfolio-showcase-card.featured { grid-template-columns: 1fr; }
       .portfolio-showcase-card.featured .portfolio-media { min-height: 300px; }
+      .pawn-flow-list.compact { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .pawn-flow-list.compact { grid-template-columns: repeat(2, 1fr); }
     }
 
     /* Client value */
@@ -791,6 +822,7 @@
         <a href="#portfolio">Portfolio</a>
         <a href="#method">Methodology</a>
         <a href="#why-us">Why Us</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="nav-cta">
@@ -897,32 +929,39 @@
       </div>
 
       <div class="portfolio-showcase-grid">
-        <article class="portfolio-showcase-card featured">
+        <article class="portfolio-showcase-card">
+          <div class="portfolio-media contain">
+            <span class="portfolio-label">Dashboard Manajemen Gadai</span>
+            <img loading="lazy" src="assets/image-gadai.png" alt="Dashboard Platform Manajemen Gadai Terintegrasi">
+          </div>
           <div class="portfolio-copy">
             <div class="tag">Portfolio / Sistem Operasional Gadai</div>
             <h3>Platform Manajemen Gadai Terintegrasi</h3>
-            <p>Konsep aplikasi untuk mengelola proses gadai secara end-to-end, mulai dari pengajuan dan penaksiran agunan hingga approval, transaksi, pelunasan, jurnal, dan laporan operasional.</p>
+            <p>Konsep aplikasi untuk mengelola proses gadai secara end-to-end, mulai dari pengajuan dan penaksiran agunan hingga approval, transaksi, pelunasan, jurnal akuntansi, laporan keuangan, dan monitoring operasional.</p>
             <div class="chips">
               <span class="chip">Pengajuan &amp; Penaksiran</span>
               <span class="chip pink">Approval Berjenjang</span>
               <span class="chip">Transaksi &amp; Pelunasan</span>
               <span class="chip pink">Jurnal &amp; Laporan</span>
+              <span class="chip pink">Akuntansi</span>
               <span class="chip">Audit Trail</span>
             </div>
             <ul>
               <li>Pencatatan nasabah, agunan, nilai taksir, tenor, dan status pengajuan.</li>
               <li>Approval berdasarkan peran, batas kewenangan, dan nilai transaksi.</li>
               <li>Pencairan, pembayaran angsuran, pelunasan, dan riwayat transaksi.</li>
-              <li>Dashboard monitoring, jurnal akuntansi, laporan, dan jejak audit.</li>
+              <li>Modul akuntansi terintegrasi: jurnal otomatis dari setiap transaksi, pencatatan piutang dan pendapatan bunga, penyisihan piutang, neraca, laba rugi, arus kas, dan laporan keuangan sesuai standar.</li>
+              <li>Dashboard monitoring, jejak audit, dan rekonsiliasi transaksi harian.</li>
             </ul>
-          </div>
-          <div class="portfolio-media pawn-flow">
-            <span class="portfolio-label">Alur Operasional Gadai</span>
-            <div class="pawn-flow-list" aria-label="Tahapan sistem operasional gadai">
-              <div class="pawn-flow-step"><span>01</span><div><strong>Pengajuan</strong><small>Data nasabah dan agunan</small></div></div>
-              <div class="pawn-flow-step"><span>02</span><div><strong>Penaksiran</strong><small>Nilai agunan dan pembiayaan</small></div></div>
-              <div class="pawn-flow-step"><span>03</span><div><strong>Approval</strong><small>Validasi dan kewenangan berjenjang</small></div></div>
-              <div class="pawn-flow-step"><span>04</span><div><strong>Transaksi &amp; Pelaporan</strong><small>Pencairan, pelunasan, jurnal, dan monitoring</small></div></div>
+            <div class="portfolio-copy-flow">
+              <div class="eyebrow" style="margin-bottom: 14px;">Alur Operasional</div>
+              <div class="pawn-flow-list compact" aria-label="Tahapan sistem operasional gadai">
+                <div class="pawn-flow-step"><span>01</span><div><strong>Pengajuan</strong><small>Data nasabah dan agunan</small></div></div>
+                <div class="pawn-flow-step"><span>02</span><div><strong>Penaksiran</strong><small>Nilai agunan dan pembiayaan</small></div></div>
+                <div class="pawn-flow-step"><span>03</span><div><strong>Approval</strong><small>Validasi dan kewenangan berjenjang</small></div></div>
+                <div class="pawn-flow-step"><span>04</span><div><strong>Transaksi</strong><small>Pencairan, angsuran, pelunasan</small></div></div>
+                <div class="pawn-flow-step"><span>05</span><div><strong>Jurnal &amp; Akuntansi</strong><small>Jurnal otomatis, laporan keuangan</small></div></div>
+              </div>
             </div>
           </div>
         </article>
@@ -937,6 +976,16 @@
             <h3>Diluar Cost Travel UI</h3>
             <p>Website travel company dengan booking search, destination cards, package tour, testimonials, gallery, dan footer contact.</p>
             <div class="chips"><span class="chip">UI/UX</span><span class="chip pink">Travel</span><span class="chip">Company Profile</span></div>
+            <div class="portfolio-copy-flow">
+              <div class="eyebrow" style="margin-bottom: 14px;">Alur Pemesanan</div>
+              <div class="pawn-flow-list compact" aria-label="Alur pemesanan travel">
+                <div class="pawn-flow-step"><span>01</span><div><strong>Cari</strong><small>Destinasi &amp; paket</small></div></div>
+                <div class="pawn-flow-step"><span>02</span><div><strong>Pilih</strong><small>Jadwal &amp; fasilitas</small></div></div>
+                <div class="pawn-flow-step"><span>03</span><div><strong>Booking</strong><small>Isi data &amp; bayar</small></div></div>
+                <div class="pawn-flow-step"><span>04</span><div><strong>Konfirmasi</strong><small>E-voucher &amp; invoice</small></div></div>
+                <div class="pawn-flow-step"><span>05</span><div><strong>Trip</strong><small>Persiapan perjalanan</small></div></div>
+              </div>
+            </div>
           </div>
         </article>
 
@@ -950,6 +999,16 @@
             <h3>Fashion Rental Web</h3>
             <p>Katalog produk rental dress dengan kategori event, filter, search, product overview, dan informasi ketersediaan produk.</p>
             <div class="chips"><span class="chip">Catalog</span><span class="chip pink">Search/Filter</span><span class="chip">Product Cards</span></div>
+            <div class="portfolio-copy-flow">
+              <div class="eyebrow" style="margin-bottom: 14px;">Alur Rental</div>
+              <div class="pawn-flow-list compact" aria-label="Alur rental fashion">
+                <div class="pawn-flow-step"><span>01</span><div><strong>Event</strong><small>Pilih kategori</small></div></div>
+                <div class="pawn-flow-step"><span>02</span><div><strong>Cari</strong><small>Filter &amp; pilih dress</small></div></div>
+                <div class="pawn-flow-step"><span>03</span><div><strong>Cek</strong><small>Ketersediaan ukuran</small></div></div>
+                <div class="pawn-flow-step"><span>04</span><div><strong>Reservasi</strong><small>Tanggal &amp; pembayaran</small></div></div>
+                <div class="pawn-flow-step"><span>05</span><div><strong>Pickup</strong><small>Ambil &amp; kembalikan</small></div></div>
+              </div>
+            </div>
           </div>
         </article>
 
@@ -963,10 +1022,24 @@
             <h3>Uniform Company Web</h3>
             <p>Company website untuk showcase produk seragam, hero section, client portfolio, testimoni, CTA kontak, dan channel toko online.</p>
             <div class="chips"><span class="chip">Corporate Website</span><span class="chip pink">Product Showcase</span><span class="chip">Client Portfolio</span></div>
+            <div class="portfolio-copy-flow">
+              <div class="eyebrow" style="margin-bottom: 14px;">Alur Pemesanan</div>
+              <div class="pawn-flow-list compact" aria-label="Alur pemesanan seragam">
+                <div class="pawn-flow-step"><span>01</span><div><strong>Katalog</strong><small>Lihat produk</small></div></div>
+                <div class="pawn-flow-step"><span>02</span><div><strong>Pilih</strong><small>Model &amp; warna</small></div></div>
+                <div class="pawn-flow-step"><span>03</span><div><strong>Custom</strong><small>Ukuran &amp; logo</small></div></div>
+                <div class="pawn-flow-step"><span>04</span><div><strong>Inquiry</strong><small>Kirim permintaan</small></div></div>
+                <div class="pawn-flow-step"><span>05</span><div><strong>Produksi</strong><small>Proses &amp; pengiriman</small></div></div>
+              </div>
+            </div>
           </div>
         </article>
 
         <article class="portfolio-showcase-card">
+          <div class="portfolio-media contain">
+            <span class="portfolio-label">Cloud &amp; Automation Dashboard</span>
+            <img loading="lazy" src="assets/image-computing.png" alt="DiluarCost Cloud &amp; Automation Dashboard">
+          </div>
           <div class="portfolio-copy">
             <div class="tag">Portfolio / Cloud &amp; Automation</div>
             <h3>Cloud Storage SaaS &amp; Automation</h3>
@@ -977,6 +1050,46 @@
               <li>Integrasi API, monitoring, logging, dan deployment support.</li>
               <li>Disiapkan untuk kebutuhan enterprise dan multi-user.</li>
             </ul>
+            <div class="portfolio-copy-flow">
+              <div class="eyebrow" style="margin-bottom: 14px;">Alur Automation</div>
+              <div class="pawn-flow-list compact" aria-label="Alur automation cloud">
+                <div class="pawn-flow-step"><span>01</span><div><strong>Trigger</strong><small>Event atau jadwal</small></div></div>
+                <div class="pawn-flow-step"><span>02</span><div><strong>Eksekusi</strong><small>Workflow engine</small></div></div>
+                <div class="pawn-flow-step"><span>03</span><div><strong>Proses</strong><small>Data &amp; file</small></div></div>
+                <div class="pawn-flow-step"><span>04</span><div><strong>Monitor</strong><small>Status &amp; log</small></div></div>
+                <div class="pawn-flow-step"><span>05</span><div><strong>Report</strong><small>Notifikasi &amp; laporan</small></div></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-showcase-card">
+          <div class="portfolio-media contain">
+            <span class="portfolio-label">POS System Dashboard</span>
+            <img loading="lazy" src="assets/image-pos.png" alt="DiluarCost POS System Dashboard">
+          </div>
+          <div class="portfolio-copy">
+            <div class="tag">Portfolio / Point of Sale System</div>
+            <h3>POS System untuk Retail &amp; F&amp;B</h3>
+            <p>Sistem kasir digital yang mengintegrasikan transaksi penjualan, manajemen produk, inventori real-time, membership, multi-payment, dan laporan keuangan untuk bisnis retail maupun F&amp;B.</p>
+            <div class="chips"><span class="chip">Transaksi</span><span class="chip pink">Inventori</span><span class="chip">Multi-Payment</span><span class="chip pink">Membership</span><span class="chip">Laporan</span><span class="chip">Akuntansi</span></div>
+            <ul>
+              <li>Transaksi cepat dengan barcode scanner, pencarian produk, diskon, pajak, dan split bill.</li>
+              <li>Manajemen produk, kategori, SKU, varian, harga grosir, dan stok multi-cabang.</li>
+              <li>Pembayaran tunai, kartu debit/kredit, QRIS, e-wallet, dan split payment.</li>
+              <li>Membership, poin reward, voucher, promo, dan riwayat pembelian pelanggan.</li>
+              <li>Laporan penjualan harian, shift, kasir, laba per item, dan integrasi jurnal akuntansi otomatis.</li>
+            </ul>
+            <div class="portfolio-copy-flow">
+              <div class="eyebrow" style="margin-bottom: 14px;">Alur Penjualan</div>
+              <div class="pawn-flow-list compact" aria-label="Alur penjualan POS">
+                <div class="pawn-flow-step"><span>01</span><div><strong>Pilih</strong><small>Produk &amp; qty</small></div></div>
+                <div class="pawn-flow-step"><span>02</span><div><strong>Total</strong><small>Hitung &amp; pajak</small></div></div>
+                <div class="pawn-flow-step"><span>03</span><div><strong>Promo</strong><small>Diskon &amp; voucher</small></div></div>
+                <div class="pawn-flow-step"><span>04</span><div><strong>Bayar</strong><small>Pilih metode</small></div></div>
+                <div class="pawn-flow-step"><span>05</span><div><strong>Struk</strong><small>Cetak &amp; update stok</small></div></div>
+              </div>
+            </div>
           </div>
         </article>
       </div>
@@ -1037,6 +1150,74 @@
     </div>
   </section>
 
+  <section id="faq">
+    <div class="container">
+      <div class="section-top">
+        <div class="section-title">
+          <div class="eyebrow">Pertanyaan Umum</div>
+          <h2>FAQ</h2>
+          <p>Jawaban atas pertanyaan yang sering diajukan seputar proses kerja, layanan, harga, dan timeline pengembangan.</p>
+        </div>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-1">
+            <span>Berapa lama waktu yang dibutuhkan untuk membangun sebuah aplikasi?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div id="faq-1" class="faq-answer" role="region">
+            <div class="faq-answer-inner">Durasi bergantung pada kompleksitas fitur, jumlah integrasi, dan kesiapan requirement. Company profile sederhana bisa selesai dalam 2–4 minggu, sementara sistem bisnis dengan workflow dan approval biasanya membutuhkan 2–4 bulan. Kami akan memberikan estimasi timeline yang lebih spesifik setelah diskusi kebutuhan.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-2">
+            <span>Berapa kisaran biaya pengembangan aplikasi?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div id="faq-2" class="faq-answer" role="region">
+            <div class="faq-answer-inner">Biaya disesuaikan dengan scope, teknologi, dan dukungan pasca-launch. Kami menawarkan model fleksibel yang bisa disesuaikan dengan tahap dan anggaran bisnis Anda. Silakan <a href="https://wa.me/6281315776431?text=Halo%20DILUAR%20COST%2C%20saya%20ingin%20diskusi%20estimasi%20biaya%20proyek." target="_blank" rel="noopener">diskusikan kebutuhan</a> agar kami bisa memberikan estimasi yang relevan.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-3">
+            <span>Apakah saya akan mendapatkan source code dan dokumentasi?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div id="faq-3" class="faq-answer" role="region">
+            <div class="faq-answer-inner">Ya. Klien mendapatkan akses source code, dokumentasi teknis dasar, dan panduan deployment. Untuk proyek tertentu, kami juga menyertakan diagram arsitektur, skema database, dan daftar API endpoint.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-4">
+            <span>Bagaimana proses komunikasi dan update progress?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div id="faq-4" class="faq-answer" role="region">
+            <div class="faq-answer-inner">Kami mengadakan sesi kickoff, update progress berkala, dan review hasil iterasi. Komunikasi biasanya dilakukan melalui WhatsApp, email, atau video call sesuai kesepakatan. Setiap keputusan teknis dan risiko juga dibahas secara transparan.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-5">
+            <span>Apakah DILUAR COST menerima revisi setelah aplikasi selesai?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div id="faq-5" class="faq-answer" role="region">
+            <div class="faq-answer-inner">Revisi minor yang masih dalam scope awal akan ditangani selama masa warranty. Untuk perubahan fitur atau scope baru, kami akan diskusikan kembali sebagai iterasi atau enhancement berikutnya dengan estimasi tambahan.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-6">
+            <span>Apakah ada layanan maintenance setelah aplikasi go-live?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div id="faq-6" class="faq-answer" role="region">
+            <div class="faq-answer-inner">Ya. Kami menyediakan layanan maintenance dan support pasca-launch yang mencakup monitoring, troubleshooting, backup, perbaikan bug, dan pengembangan fitur tambahan sesuai kebutuhan.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="contact" id="contact">
     <div class="container contact-grid">
       <div class="section-title">
@@ -1080,6 +1261,33 @@
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', () => document.getElementById('nav').classList.remove('open'));
     });
+
+    // FAQ Accordion
+    (function initFAQ() {
+      const items = document.querySelectorAll('.faq-item');
+      items.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        if (!question) return;
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          items.forEach(other => {
+            other.classList.remove('active');
+            const q = other.querySelector('.faq-question');
+            if (q) q.setAttribute('aria-expanded', 'false');
+          });
+          if (!isActive) {
+            item.classList.add('active');
+            question.setAttribute('aria-expanded', 'true');
+          }
+        });
+        question.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            question.click();
+          }
+        });
+      });
+    })();
   </script>
 
 
@@ -1117,7 +1325,7 @@
         }, { passive: true });
 
         const revealItems = Array.from(document.querySelectorAll(
-          'section, .service-card, .portfolio-showcase-card, .method-card, .value-card, .contact-box, .about-card, .visual-card, .stat'
+          'section, .service-card, .portfolio-showcase-card, .method-card, .value-card, .contact-box, .about-card, .visual-card, .stat, .faq-item'
         ));
         revealItems.forEach((el, i) => {
           el.classList.add('dc-reveal');
