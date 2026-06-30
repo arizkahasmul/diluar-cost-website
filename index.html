@@ -204,7 +204,7 @@
     .node p { color: var(--muted); margin-bottom: 0; }
 
     .services-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-    .service-card, .portfolio-card, .team-card, .method-card {
+    .service-card, .portfolio-card, .method-card {
       padding: 28px;
       background: var(--card);
       border: 1px solid rgba(255,255,255,.12);
@@ -213,42 +213,14 @@
       overflow: hidden;
       min-height: 255px;
     }
-    .service-card::before, .portfolio-card::before, .team-card::before, .method-card::before {
+    .service-card::before, .portfolio-card::before, .method-card::before {
       content:""; position:absolute; top:0; left:0; height:3px; width:100%; background: linear-gradient(90deg, var(--cyan), var(--pink));
     }
     .service-code, .tag { color: var(--cyan); font-size: 12px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
-    .service-card h3, .portfolio-card h3, .team-card h3 { font-size: 24px; margin-top: 14px; margin-bottom: 14px; }
-    .service-card p, .portfolio-card p, .team-card p { color: var(--muted); margin: 0; }
-
-    .team-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-    .avatar {
-      width: 96px; height: 96px; border-radius: 50%;
-      border: 2px solid rgba(0,229,255,.75);
-      background: linear-gradient(135deg, rgba(0,229,255,.18), rgba(255,20,121,.16));
-      display:grid; place-items:center; font-size: 26px; font-weight: 900;
-      margin-bottom: 18px;
-      overflow: hidden;
-      box-shadow: 0 0 28px rgba(0,229,255,.20), 0 14px 34px rgba(0,0,0,.32);
-      position: relative;
-    }
-    .avatar::after {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(0,229,255,.18), transparent 45%, rgba(255,20,121,.22));
-      pointer-events: none;
-    }
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
-    .role { color: var(--pink); font-size: 12px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 14px; }
-    .team-card ul, .portfolio-card ul { padding-left: 18px; color: #cfe0e8; margin: 18px 0 0; }
-    .team-card li, .portfolio-card li { margin: 7px 0; }
+    .service-card h3, .portfolio-card h3 { font-size: 24px; margin-top: 14px; margin-bottom: 14px; }
+    .service-card p, .portfolio-card p { color: var(--muted); margin: 0; }
+    .portfolio-card ul { padding-left: 18px; color: #cfe0e8; margin: 18px 0 0; }
+    .portfolio-card li { margin: 7px 0; }
 
     .portfolio-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .portfolio-card.featured { grid-column: 1 / -1; min-height: 390px; display:grid; grid-template-columns: .9fr 1.1fr; gap: 26px; align-items: center; }
@@ -311,7 +283,7 @@
       .menu-btn { display:block; }
       .nav.open .nav-links { display:flex; position:absolute; left:21px; right:21px; top:76px; padding:18px; flex-direction:column; align-items:flex-start; background:rgba(5,11,18,.96); border:1px solid rgba(255,255,255,.12); border-radius:18px; }
       .about-grid, .contact-grid, .portfolio-card.featured { grid-template-columns: 1fr; }
-      .services-grid, .team-grid, .portfolio-grid { grid-template-columns: 1fr; }
+      .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
       .stats { grid-template-columns: 1fr; }
       .section-top { align-items:flex-start; flex-direction:column; }
       .hero { min-height: auto; }
@@ -413,6 +385,35 @@
       font-weight: 800;
       backdrop-filter: blur(12px);
     }
+    .pawn-flow {
+      display: grid;
+      place-items: center;
+      padding: 62px 28px 28px;
+      background:
+        linear-gradient(rgba(0,229,255,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,255,.08) 1px, transparent 1px),
+        radial-gradient(circle at 78% 20%, rgba(255,20,121,.16), transparent 32%),
+        #071421;
+      background-size: 28px 28px, 28px 28px, auto, auto;
+    }
+    .pawn-flow-list { width: min(100%, 520px); }
+    .pawn-flow-step {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 17px 0;
+      border-top: 1px solid rgba(255,255,255,.14);
+    }
+    .pawn-flow-step:last-child { border-bottom: 1px solid rgba(255,255,255,.14); }
+    .pawn-flow-step > span {
+      color: var(--cyan);
+      font-family: 'Oswald', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .pawn-flow-step strong { display: block; font-size: 17px; }
+    .pawn-flow-step small { display: block; margin-top: 3px; color: var(--muted); }
     @media (max-width: 920px) {
       .portfolio-showcase-grid,
       .portfolio-showcase-card.featured { grid-template-columns: 1fr; }
@@ -628,7 +629,6 @@
 
 .glass,
 .service-card,
-.team-card,
 .portfolio-showcase-card,
 .method-card,
 .value-card,
@@ -638,7 +638,6 @@
   will-change: transform, opacity;
 }
 .service-card,
-.team-card,
 .portfolio-showcase-card,
 .method-card,
 .value-card,
@@ -650,7 +649,6 @@
   overflow: hidden;
 }
 .service-card::after,
-.team-card::after,
 .portfolio-showcase-card::after,
 .method-card::after,
 .value-card::after,
@@ -669,7 +667,6 @@
   transition: opacity .22s ease;
 }
 .service-card:hover::after,
-.team-card:hover::after,
 .portfolio-showcase-card:hover::after,
 .method-card:hover::after,
 .value-card:hover::after,
@@ -697,7 +694,6 @@
 .section-title h2,
 .portfolio-showcase-card h3,
 .service-card h3,
-.team-card h3,
 .method-card h3 {
   animation: dcSoftGlow 4.2s ease-in-out infinite;
 }
@@ -707,12 +703,10 @@
 }
 
 .portfolio-media,
-.portfolio-showcase-card img,
-.avatar img {
+.portfolio-showcase-card img {
   transition: transform .8s cubic-bezier(.16,1,.3,1), filter .8s ease;
 }
-.portfolio-showcase-card:hover img,
-.team-card:hover .avatar img {
+.portfolio-showcase-card:hover img {
   transform: scale(1.065);
   filter: saturate(1.18) contrast(1.05);
 }
@@ -794,7 +788,6 @@
       <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#services">Services</a>
-        <a href="#team">Team</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#method">Methodology</a>
         <a href="#why-us">Why Us</a>
@@ -893,55 +886,6 @@
       </div>
     </div>
   </section>
-
-  <section id="team">
-    <div class="container">
-      <div class="section-top">
-        <div class="section-title">
-          <div class="eyebrow">Our Team / Leadership</div>
-          <h2>Struktur <span class="accent">Organisasi</span></h2>
-          <p>Kolaborasi strategis untuk menghadirkan solusi digital yang andal, terstruktur, dan berkelanjutan.</p>
-        </div>
-      </div>
-      <div class="team-grid">
-        <article class="team-card">
-          <div class="avatar"><img loading="lazy" src="assets/team-rizka.png" alt="Foto Rizka Hasmulyawan"></div>
-          <h3>Rizka Hasmulyawan</h3>
-          <div class="role">Direktur &amp; IT Business Analyst</div>
-          <p>Berpengalaman dalam business analysis, project delivery, data integration, database analysis, ERP implementation, dan validasi proses finance.</p>
-          <ul>
-            <li>Requirement gathering, monitoring, UAT, go-live</li>
-            <li>SSIS, PL/SQL, SQL Server, troubleshooting data</li>
-            <li>Finance process, accounting journal validation</li>
-          </ul>
-        </article>
-        <article class="team-card">
-          <div class="avatar"><img loading="lazy" src="assets/team-andicha.png" alt="Foto Andicha Gundala Putra R."></div>
-          <h3>Andicha Gundala Putra R.</h3>
-          <div class="role">IT Quality Assurance</div>
-          <p>Berpengalaman dalam QA aplikasi bisnis dan finance, deployment support, stress test, regression test, dan validasi integrasi data.</p>
-          <ul>
-            <li>Functional test, UAT support, defect tracking</li>
-            <li>Stress test &amp; performance validation</li>
-            <li>Finance project quality assurance</li>
-          </ul>
-        </article>
-        <article class="team-card">
-          <div class="avatar"><img loading="lazy" src="assets/team-faizal.png" alt="Foto M. Nur Faizal"></div>
-          <h3>M. Nur Faizal</h3>
-          <div class="role">IT Developer</div>
-          <p>Berpengalaman sebagai frontend dan backend developer pada aplikasi finance, transaksi, jurnal, aset, cabang, serta integrasi sistem.</p>
-          <ul>
-            <li>Frontend dashboard, form, table, search/filter</li>
-            <li>Backend REST API, CRUD, approval, database</li>
-            <li>Finance/gadai/pembiayaan system delivery</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-
   <section id="portfolio">
     <div class="container">
       <div class="section-top">
@@ -955,26 +899,31 @@
       <div class="portfolio-showcase-grid">
         <article class="portfolio-showcase-card featured">
           <div class="portfolio-copy">
-            <div class="tag">Portfolio / PT Pegadaian</div>
-            <h3>PT Pegadaian Application Ecosystem</h3>
-            <p>Konsep aplikasi finance dan gadai terintegrasi untuk mendukung dashboard manajemen, pengajuan, approval, transaksi, jurnal, cabang, aset, dan laporan operasional.</p>
+            <div class="tag">Portfolio / Sistem Operasional Gadai</div>
+            <h3>Platform Manajemen Gadai Terintegrasi</h3>
+            <p>Konsep aplikasi untuk mengelola proses gadai secara end-to-end, mulai dari pengajuan dan penaksiran agunan hingga approval, transaksi, pelunasan, jurnal, dan laporan operasional.</p>
             <div class="chips">
-              <span class="chip">Dashboard Admin &amp; Direktur</span>
-              <span class="chip pink">Tiering Approval</span>
-              <span class="chip">Accounting Journal</span>
-              <span class="chip pink">Branch &amp; Asset Menu</span>
-              <span class="chip">Data Integration</span>
+              <span class="chip">Pengajuan &amp; Penaksiran</span>
+              <span class="chip pink">Approval Berjenjang</span>
+              <span class="chip">Transaksi &amp; Pelunasan</span>
+              <span class="chip pink">Jurnal &amp; Laporan</span>
+              <span class="chip">Audit Trail</span>
             </div>
             <ul>
-              <li>Widget dashboard, grafik kolektibilitas, dan total monitoring.</li>
-              <li>Pengajuan khusus saat nilai pinjaman melebihi nilai taksir.</li>
-              <li>Jurnal, neraca lajur, kertas kerja, aset, cabang, dan audit trail.</li>
-              <li>Opsi pengembangan notifikasi email dan WhatsApp.</li>
+              <li>Pencatatan nasabah, agunan, nilai taksir, tenor, dan status pengajuan.</li>
+              <li>Approval berdasarkan peran, batas kewenangan, dan nilai transaksi.</li>
+              <li>Pencairan, pembayaran angsuran, pelunasan, dan riwayat transaksi.</li>
+              <li>Dashboard monitoring, jurnal akuntansi, laporan, dan jejak audit.</li>
             </ul>
           </div>
-          <div class="portfolio-media contain">
-            <span class="portfolio-label">Finance Application Portfolio</span>
-            <img loading="lazy" src="assets/portfolio-pegadaian.jpg" alt="Portfolio aplikasi PT Pegadaian">
+          <div class="portfolio-media pawn-flow">
+            <span class="portfolio-label">Alur Operasional Gadai</span>
+            <div class="pawn-flow-list" aria-label="Tahapan sistem operasional gadai">
+              <div class="pawn-flow-step"><span>01</span><div><strong>Pengajuan</strong><small>Data nasabah dan agunan</small></div></div>
+              <div class="pawn-flow-step"><span>02</span><div><strong>Penaksiran</strong><small>Nilai agunan dan pembiayaan</small></div></div>
+              <div class="pawn-flow-step"><span>03</span><div><strong>Approval</strong><small>Validasi dan kewenangan berjenjang</small></div></div>
+              <div class="pawn-flow-step"><span>04</span><div><strong>Transaksi &amp; Pelaporan</strong><small>Pencairan, pelunasan, jurnal, dan monitoring</small></div></div>
+            </div>
           </div>
         </article>
 
@@ -1168,7 +1117,7 @@
         }, { passive: true });
 
         const revealItems = Array.from(document.querySelectorAll(
-          'section, .service-card, .team-card, .portfolio-showcase-card, .method-card, .value-card, .contact-box, .about-card, .visual-card, .stat'
+          'section, .service-card, .portfolio-showcase-card, .method-card, .value-card, .contact-box, .about-card, .visual-card, .stat'
         ));
         revealItems.forEach((el, i) => {
           el.classList.add('dc-reveal');
@@ -1185,7 +1134,7 @@
         revealItems.forEach(el => revealObserver.observe(el));
 
         const tiltItems = Array.from(document.querySelectorAll(
-          '.service-card, .team-card, .portfolio-showcase-card, .method-card, .value-card, .contact-box, .about-card, .visual-card, .stat'
+          '.service-card, .portfolio-showcase-card, .method-card, .value-card, .contact-box, .about-card, .visual-card, .stat'
         ));
         tiltItems.forEach((card) => {
           card.addEventListener('pointermove', (e) => {
