@@ -110,7 +110,24 @@
     }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 18px 46px rgba(0, 229, 255, .32); }
     .btn.secondary { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.16); box-shadow: none; }
-    .menu-btn { display: none; background: transparent; border: 1px solid var(--white-14); color: white; padding: 10px 12px; border-radius: 12px; }
+    .menu-btn { display: none; position: relative; background: transparent; border: 1px solid var(--white-14); color: white; padding: 10px 12px; border-radius: 12px; cursor: pointer; z-index: 52; place-items: center; }
+    .menu-btn .bar { display: block; width: 20px; height: 2px; background: currentColor; border-radius: 2px; transition: transform .3s ease, opacity .3s ease, margin .3s ease; }
+    .menu-btn .bar + .bar { margin-top: 5px; }
+    .nav.open .menu-btn .bar { position: absolute; top: 50%; left: 50%; margin: 0; }
+    .nav.open .menu-btn .bar:nth-child(1) { transform: translate(-50%, -50%) rotate(45deg); }
+    .nav.open .menu-btn .bar:nth-child(2) { opacity: 0; }
+    .nav.open .menu-btn .bar:nth-child(3) { transform: translate(-50%, -50%) rotate(-45deg); }
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.6);
+      backdrop-filter: blur(4px);
+      z-index: 50;
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+    .nav.open .nav-overlay { display: block; opacity: 1; }
     .lang-switch {
       display: inline-flex;
       align-items: center;
@@ -120,6 +137,7 @@
       border-radius: 999px;
       padding: 4px;
     }
+    .lang-switch.mobile-only { display: none; }
     .lang-switch button {
       background: transparent;
       border: 0;
@@ -306,8 +324,43 @@
 
     @media (max-width: 980px) {
       .nav-links, .nav-cta { display:none; }
-      .menu-btn { display:block; }
-      .nav.open .nav-links { display:flex; position:absolute; left:21px; right:21px; top:76px; padding:18px; flex-direction:column; align-items:flex-start; background:rgba(5,11,18,.96); border:1px solid rgba(255,255,255,.12); border-radius:18px; }
+      .nav-inner { gap: 8px; }
+      .brand { gap: 8px; }
+      .brand-mark { width: 34px; height: 34px; }
+      .brand-title { font-size: 15px; }
+      .brand-sub { display: none; }
+      .menu-btn { display:grid; flex: 0 0 auto; width: 42px; height: 42px; padding: 0; }
+      .nav-inner > .lang-switch { display: none; }
+      .lang-switch.mobile-only { display: inline-flex; margin-bottom: 16px; }
+      .nav-links {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: min(320px, 85vw);
+        height: 100vh;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 8px;
+        padding: 100px 28px 28px;
+        background: rgba(5, 11, 18, .98);
+        border-left: 1px solid rgba(255,255,255,.12);
+        z-index: 51;
+        transform: translateX(110%);
+        transition: transform .35s cubic-bezier(.16,1,.3,1);
+        overflow-y: auto;
+      }
+      .nav.open .nav-links { transform: translateX(0); }
+      .nav-links a {
+        width: 100%;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+        font-size: 16px;
+      }
+      .nav-links a:last-of-type { border-bottom: 0; }
+      body.menu-open { overflow: hidden; }
       .about-grid, .contact-grid, .portfolio-card.featured { grid-template-columns: 1fr; }
       .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
       .stats { grid-template-columns: 1fr; }
@@ -844,6 +897,10 @@
         </div>
       </a>
       <div class="nav-links" id="navLinks">
+        <div class="lang-switch mobile-only" aria-label="Language switcher">
+          <button type="button" data-lang="id" class="active" aria-label="Bahasa Indonesia">ID</button>
+          <button type="button" data-lang="en" aria-label="English">EN</button>
+        </div>
         <a href="#about" data-id="About" data-en="About">About</a>
         <a href="#services" data-id="Services" data-en="Services">Services</a>
         <a href="#portfolio" data-id="Portfolio" data-en="Portfolio">Portfolio</a>
@@ -860,7 +917,12 @@
         <button type="button" data-lang="id" class="active" aria-label="Bahasa Indonesia">ID</button>
         <button type="button" data-lang="en" aria-label="English">EN</button>
       </div>
-      <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <div class="nav-overlay" onclick="toggleMenu()" aria-hidden="true"></div>
     </div>
   </nav>
 
@@ -1286,11 +1348,20 @@
 
   <script>
     function toggleMenu() {
-      document.getElementById('nav').classList.toggle('open');
+      const nav = document.getElementById('nav');
+      const isOpen = nav.classList.toggle('open');
+      document.body.classList.toggle('menu-open', isOpen);
+      const menuBtn = document.querySelector('.menu-btn');
+      if (menuBtn) menuBtn.setAttribute('aria-expanded', String(isOpen));
     }
 
     document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', () => document.getElementById('nav').classList.remove('open'));
+      link.addEventListener('click', () => {
+        document.getElementById('nav').classList.remove('open');
+        document.body.classList.remove('menu-open');
+        const menuBtn = document.querySelector('.menu-btn');
+        if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+      });
     });
 
     // FAQ Accordion
