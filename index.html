@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Oswald:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js-enabled');</script>
   <style>
     :root {
       --bg: #050b12;
@@ -706,7 +707,8 @@
 .visual-card:hover::after,
 .stat:hover::after { opacity: 1; }
 
-.dc-reveal {
+/* Reveal animation only when JS is enabled */
+.js-enabled .dc-reveal {
   opacity: 0;
   transform: translateY(44px) scale(.985);
   filter: blur(8px);
@@ -716,7 +718,7 @@
     filter .85s cubic-bezier(.16,1,.3,1);
   transition-delay: var(--delay, 0ms);
 }
-.dc-reveal.dc-visible {
+.js-enabled .dc-reveal.dc-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
   filter: blur(0);
@@ -791,7 +793,7 @@
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   #dc-particle-canvas, .dc-cursor-glow, .dc-orb, .dc-progress { display: none !important; }
-  .dc-reveal { opacity: 1; transform: none; filter: none; }
+  .js-enabled .dc-reveal { opacity: 1; transform: none; filter: none; }
 }
 
 </style>
@@ -1331,15 +1333,33 @@
           el.classList.add('dc-reveal');
           el.style.setProperty('--delay', Math.min((i % 6) * 80, 420) + 'ms');
         });
-        const revealObserver = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('dc-visible');
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
-        revealItems.forEach(el => revealObserver.observe(el));
+
+        function markAllVisible() {
+          revealItems.forEach(el => el.classList.add('dc-visible'));
+        }
+
+        if (!window.IntersectionObserver) {
+          markAllVisible();
+        } else {
+          const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('dc-visible');
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+          revealItems.forEach(el => revealObserver.observe(el));
+
+          // Fallback: ensure elements become visible after 3 seconds even if observer fails
+          setTimeout(() => {
+            revealItems.forEach(el => {
+              if (!el.classList.contains('dc-visible')) {
+                el.classList.add('dc-visible');
+              }
+            });
+          }, 3000);
+        }
 
         const tiltItems = Array.from(document.querySelectorAll(
           '.service-card, .portfolio-showcase-card, .method-card, .value-card, .contact-box, .about-card, .visual-card, .stat'
