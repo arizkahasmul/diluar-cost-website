@@ -111,6 +111,31 @@
     .btn:hover { transform: translateY(-2px); box-shadow: 0 18px 46px rgba(0, 229, 255, .32); }
     .btn.secondary { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.16); box-shadow: none; }
     .menu-btn { display: none; background: transparent; border: 1px solid var(--white-14); color: white; padding: 10px 12px; border-radius: 12px; }
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 999px;
+      padding: 4px;
+    }
+    .lang-switch button {
+      background: transparent;
+      border: 0;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+    .lang-switch button.active {
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      color: white;
+    }
+    .lang-switch button:hover:not(.active) { color: var(--cyan); }
 
     .hero {
       min-height: 710px;
@@ -819,17 +844,21 @@
         </div>
       </a>
       <div class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#method">Methodology</a>
-        <a href="#why-us">Why Us</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" data-id="About" data-en="About">About</a>
+        <a href="#services" data-id="Services" data-en="Services">Services</a>
+        <a href="#portfolio" data-id="Portfolio" data-en="Portfolio">Portfolio</a>
+        <a href="#method" data-id="Methodology" data-en="Methodology">Methodology</a>
+        <a href="#why-us" data-id="Why Us" data-en="Why Us">Why Us</a>
+        <a href="#faq" data-id="FAQ" data-en="FAQ">FAQ</a>
+        <a href="#contact" data-id="Contact" data-en="Contact">Contact</a>
       </div>
       <div class="nav-cta">
         <div class="phone"></div>
-        <a class="btn" href="https://wa.me/6281315776431?text=Halo%20DILUAR%20COST%2C%20saya%20ingin%20konsultasi%20pembuatan%20website%20atau%20aplikasi." target="_blank" rel="noopener">Konsultasi Proyek</a>
+        <a class="btn" href="https://wa.me/6281315776431?text=Halo%20DILUAR%20COST%2C%20saya%20ingin%20konsultasi%20pembuatan%20website%20atau%20aplikasi." target="_blank" rel="noopener" data-id="Konsultasi Proyek" data-en="Consult Project">Konsultasi Proyek</a>
+      </div>
+      <div class="lang-switch" aria-label="Language switcher">
+        <button type="button" data-lang="id" class="active" aria-label="Bahasa Indonesia">ID</button>
+        <button type="button" data-lang="en" aria-label="English">EN</button>
       </div>
       <button class="menu-btn" onclick="toggleMenu()">Menu</button>
     </div>
@@ -838,17 +867,17 @@
   <header class="hero" id="home">
     <div class="hero-art" aria-hidden="true"></div>
     <div class="container hero-content">
-      <div class="eyebrow">Software Development &amp; Digital Transformation</div>
+      <div class="eyebrow" data-id="Software Development &amp; Digital Transformation" data-en="Software Development &amp; Digital Transformation">Software Development &amp; Digital Transformation</div>
       <h1>DILUAR<br>COST</h1>
-      <p>Kami membantu bisnis mewujudkan ide menjadi produk digital yang aman, mudah dikembangkan, dan siap digunakan melalui perancangan arsitektur, pengembangan aplikasi, serta infrastruktur cloud, dengan solusi fleksibel yang disesuaikan dengan tujuan, anggaran, dan tahap pertumbuhan setiap klien.</p>
+      <p data-id="Kami membantu bisnis mewujudkan ide menjadi produk digital yang aman, mudah dikembangkan, dan siap digunakan melalui perancangan arsitektur, pengembangan aplikasi, serta infrastruktur cloud, dengan solusi fleksibel yang disesuaikan dengan tujuan, anggaran, dan tahap pertumbuhan setiap klien." data-en="We help businesses turn ideas into secure, scalable, and usable digital products through architecture design, application development, and cloud infrastructure, with flexible solutions tailored to each client's goals, budget, and growth stage.">Kami membantu bisnis mewujudkan ide menjadi produk digital yang aman, mudah dikembangkan, dan siap digunakan melalui perancangan arsitektur, pengembangan aplikasi, serta infrastruktur cloud, dengan solusi fleksibel yang disesuaikan dengan tujuan, anggaran, dan tahap pertumbuhan setiap klien.</p>
       <div class="hero-actions">
-        <a class="btn" href="https://wa.me/6281315776431?text=Halo%20DILUAR%20COST%2C%20saya%20ingin%20konsultasi%20pembuatan%20website%20atau%20aplikasi." target="_blank" rel="noopener">Konsultasikan Proyek</a>
-        <a class="btn secondary" href="#portfolio">Lihat Portofolio</a>
+        <a class="btn" href="https://wa.me/6281315776431?text=Halo%20DILUAR%20COST%2C%20saya%20ingin%20konsultasi%20pembuatan%20website%20atau%20aplikasi." target="_blank" rel="noopener" data-id="Konsultasikan Proyek" data-en="Consult Your Project">Konsultasikan Proyek</a>
+        <a class="btn secondary" href="#portfolio" data-id="Lihat Portofolio" data-en="View Portfolio">Lihat Portofolio</a>
       </div>
       <div class="stats">
-        <div class="stat"><strong>Business Applications</strong><span>Web, mobile, dashboard, dan sistem operasional</span></div>
-        <div class="stat"><strong>Backend &amp; Integration</strong><span>API, database, workflow, dan integrasi data</span></div>
-        <div class="stat"><strong>Cloud &amp; Quality</strong><span>Deployment, testing, monitoring, dan support</span></div>
+        <div class="stat"><strong data-id="Business Applications" data-en="Business Applications">Business Applications</strong><span data-id="Web, mobile, dashboard, dan sistem operasional" data-en="Web, mobile, dashboard, and operational systems">Web, mobile, dashboard, dan sistem operasional</span></div>
+        <div class="stat"><strong data-id="Backend &amp; Integration" data-en="Backend &amp; Integration">Backend &amp; Integration</strong><span data-id="API, database, workflow, dan integrasi data" data-en="API, database, workflow, and data integration">API, database, workflow, dan integrasi data</span></div>
+        <div class="stat"><strong data-id="Cloud &amp; Quality" data-en="Cloud &amp; Quality">Cloud &amp; Quality</strong><span data-id="Deployment, testing, monitoring, dan support" data-en="Deployment, testing, monitoring, and support">Deployment, testing, monitoring, dan support</span></div>
       </div>
     </div>
   </header>
@@ -856,21 +885,21 @@
   <section id="about">
     <div class="container about-grid">
       <div class="about-card glass">
-        <div class="eyebrow">About Us</div>
+        <div class="eyebrow" data-id="About Us" data-en="About Us">About Us</div>
         <div class="section-title">
-          <h2>Tentang <span class="accent">Kami</span></h2>
-          <p>DILUAR COST adalah technology partner yang berfokus pada pengembangan aplikasi end-to-end, sistem bisnis, integrasi data, dan solusi infrastruktur modern.</p>
+          <h2 data-id-html="Tentang <span class='accent'>Kami</span>" data-en-html="About <span class='accent'>Us</span>">Tentang <span class="accent">Kami</span></h2>
+          <p data-id="DILUAR COST adalah technology partner yang berfokus pada pengembangan aplikasi end-to-end, sistem bisnis, integrasi data, dan solusi infrastruktur modern." data-en="DILUAR COST is a technology partner focused on end-to-end application development, business systems, data integration, and modern infrastructure solutions.">DILUAR COST adalah technology partner yang berfokus pada pengembangan aplikasi end-to-end, sistem bisnis, integrasi data, dan solusi infrastruktur modern.</p>
         </div>
         <div class="bullets">
-          <div class="bullet"><div><b>Modern Software Architecture</b><br><span>Merancang sistem yang scalable, aman, dan mudah dikembangkan.</span></div></div>
-          <div class="bullet"><div><b>High-Performance System</b><br><span>Membangun aplikasi dengan fokus pada performa, reliability, dan maintainability.</span></div></div>
-          <div class="bullet"><div><b>Finance &amp; Enterprise Mindset</b><br><span>Memahami kebutuhan bisnis, approval, transaksi, jurnal, laporan, dan integrasi data.</span></div></div>
+          <div class="bullet"><div><b data-id="Modern Software Architecture" data-en="Modern Software Architecture">Modern Software Architecture</b><br><span data-id="Merancang sistem yang scalable, aman, dan mudah dikembangkan." data-en="Designing systems that are scalable, secure, and easy to maintain.">Merancang sistem yang scalable, aman, dan mudah dikembangkan.</span></div></div>
+          <div class="bullet"><div><b data-id="High-Performance System" data-en="High-Performance System">High-Performance System</b><br><span data-id="Membangun aplikasi dengan fokus pada performa, reliability, dan maintainability." data-en="Building applications with a focus on performance, reliability, and maintainability.">Membangun aplikasi dengan fokus pada performa, reliability, dan maintainability.</span></div></div>
+          <div class="bullet"><div><b data-id="Finance &amp; Enterprise Mindset" data-en="Finance &amp; Enterprise Mindset">Finance &amp; Enterprise Mindset</b><br><span data-id="Memahami kebutuhan bisnis, approval, transaksi, jurnal, laporan, dan integrasi data." data-en="Understanding business needs, approvals, transactions, journal entries, reports, and data integration.">Memahami kebutuhan bisnis, approval, transaksi, jurnal, laporan, dan integrasi data.</span></div></div>
         </div>
       </div>
       <div class="visual-card glass">
         <div class="node">
           <div class="circle"><img src="assets/diluar_cost_logo_baru.png" alt="DILUAR COST logo" /></div>
-          <h3>Build Reliable Digital Products</h3>
+          <h3 data-id="Build Reliable Digital Products" data-en="Build Reliable Digital Products">Build Reliable Digital Products</h3>
           <p>Architecture • Development • Integration • Cloud</p>
         </div>
       </div>
@@ -881,41 +910,41 @@
     <div class="container">
       <div class="section-top">
         <div class="section-title">
-          <div class="eyebrow">Layanan Kami</div>
-          <h2>Solusi Digital untuk<br><span class="accent">Kebutuhan Bisnis</span></h2>
-          <p>Layanan kami mencakup siklus pengembangan end-to-end, dari menerjemahkan proses bisnis hingga memastikan aplikasi siap digunakan dan terus berkembang.</p>
+          <div class="eyebrow" data-id="Layanan Kami" data-en="Our Services">Layanan Kami</div>
+          <h2 data-id-html="Solusi Digital untuk<br><span class='accent'>Kebutuhan Bisnis</span>" data-en-html="Digital Solutions for<br><span class='accent'>Business Needs</span>">Solusi Digital untuk<br><span class="accent">Kebutuhan Bisnis</span></h2>
+          <p data-id="Layanan kami mencakup siklus pengembangan end-to-end, dari menerjemahkan proses bisnis hingga memastikan aplikasi siap digunakan dan terus berkembang." data-en="Our services cover the end-to-end development cycle, from translating business processes to ensuring the application is ready for use and continues to evolve.">Layanan kami mencakup siklus pengembangan end-to-end, dari menerjemahkan proses bisnis hingga memastikan aplikasi siap digunakan dan terus berkembang.</p>
         </div>
       </div>
       <div class="services-grid">
         <div class="service-card">
           <div class="service-code">// Business Apps</div>
-          <h3>Web Applications</h3>
-          <p>Dashboard, admin panel, transaksi, laporan, approval flow, dan aplikasi responsif untuk mendukung operasional harian.</p>
+          <h3 data-id="Web Applications" data-en="Web Applications">Web Applications</h3>
+          <p data-id="Dashboard, admin panel, transaksi, laporan, approval flow, dan aplikasi responsif untuk mendukung operasional harian." data-en="Dashboard, admin panel, transactions, reports, approval flow, and responsive applications to support daily operations.">Dashboard, admin panel, transaksi, laporan, approval flow, dan aplikasi responsif untuk mendukung operasional harian.</p>
         </div>
         <div class="service-card">
           <div class="service-code">// Backend</div>
-          <h3>Backend &amp; Integration</h3>
-          <p>REST API, business logic, database design, authentication, integrasi antarsistem, logging, dan error handling.</p>
+          <h3 data-id="Backend &amp; Integration" data-en="Backend &amp; Integration">Backend &amp; Integration</h3>
+          <p data-id="REST API, business logic, database design, authentication, integrasi antarsistem, logging, dan error handling." data-en="REST API, business logic, database design, authentication, system integration, logging, and error handling.">REST API, business logic, database design, authentication, integrasi antarsistem, logging, dan error handling.</p>
         </div>
         <div class="service-card">
           <div class="service-code">// Cloud</div>
-          <h3>Cloud &amp; DevOps</h3>
-          <p>Deployment VPS atau cloud, Docker, CI/CD, monitoring, dan penyiapan environment yang siap digunakan.</p>
+          <h3 data-id="Cloud &amp; DevOps" data-en="Cloud &amp; DevOps">Cloud &amp; DevOps</h3>
+          <p data-id="Deployment VPS atau cloud, Docker, CI/CD, monitoring, dan penyiapan environment yang siap digunakan." data-en="VPS or cloud deployment, Docker, CI/CD, monitoring, and ready-to-use environment setup.">Deployment VPS atau cloud, Docker, CI/CD, monitoring, dan penyiapan environment yang siap digunakan.</p>
         </div>
         <div class="service-card">
           <div class="service-code">// Experience</div>
-          <h3>Mobile &amp; Responsive UI</h3>
-          <p>Antarmuka yang mudah digunakan pada desktop maupun perangkat mobile, disesuaikan dengan alur kerja pengguna.</p>
+          <h3 data-id="Mobile &amp; Responsive UI" data-en="Mobile &amp; Responsive UI">Mobile &amp; Responsive UI</h3>
+          <p data-id="Antarmuka yang mudah digunakan pada desktop maupun perangkat mobile, disesuaikan dengan alur kerja pengguna." data-en="Interfaces that are easy to use on desktop and mobile devices, tailored to user workflows.">Antarmuka yang mudah digunakan pada desktop maupun perangkat mobile, disesuaikan dengan alur kerja pengguna.</p>
         </div>
         <div class="service-card">
           <div class="service-code">// Quality</div>
-          <h3>Testing &amp; Release Readiness</h3>
-          <p>Functional testing, regression testing, performance validation, dukungan UAT, dan pemeriksaan sebelum go-live.</p>
+          <h3 data-id="Testing &amp; Release Readiness" data-en="Testing &amp; Release Readiness">Testing &amp; Release Readiness</h3>
+          <p data-id="Functional testing, regression testing, performance validation, dukungan UAT, dan pemeriksaan sebelum go-live." data-en="Functional testing, regression testing, performance validation, UAT support, and pre-go-live checks.">Functional testing, regression testing, performance validation, dukungan UAT, dan pemeriksaan sebelum go-live.</p>
         </div>
         <div class="service-card">
           <div class="service-code">// Support</div>
-          <h3>Maintenance &amp; Improvement</h3>
-          <p>Troubleshooting, monitoring, perbaikan berkelanjutan, dan pengembangan fitur setelah aplikasi digunakan.</p>
+          <h3 data-id="Maintenance &amp; Improvement" data-en="Maintenance &amp; Improvement">Maintenance &amp; Improvement</h3>
+          <p data-id="Troubleshooting, monitoring, perbaikan berkelanjutan, dan pengembangan fitur setelah aplikasi digunakan." data-en="Troubleshooting, monitoring, continuous improvement, and feature development after the application is in use.">Troubleshooting, monitoring, perbaikan berkelanjutan, dan pengembangan fitur setelah aplikasi digunakan.</p>
         </div>
       </div>
     </div>
@@ -924,9 +953,9 @@
     <div class="container">
       <div class="section-top">
         <div class="section-title">
-          <div class="eyebrow">Portfolio</div>
-          <h2>Studi Kasus &amp;<br><span class="accent">Portofolio</span></h2>
-          <p>Contoh solusi yang menunjukkan cakupan pekerjaan kami pada sistem enterprise, finance, travel, katalog digital, company profile, dan backend automation.</p>
+          <div class="eyebrow" data-id="Portfolio" data-en="Portfolio">Portfolio</div>
+          <h2 data-id-html="Studi Kasus &amp;<br><span class='accent'>Portofolio</span>" data-en-html="Case Studies &amp;<br><span class='accent'>Portfolio</span>">Studi Kasus &amp;<br><span class="accent">Portofolio</span></h2>
+          <p data-id="Contoh solusi yang menunjukkan cakupan pekerjaan kami pada sistem enterprise, finance, travel, katalog digital, company profile, dan backend automation." data-en="Examples of solutions showing our work across enterprise systems, finance, travel, digital catalogs, company profiles, and backend automation.">Contoh solusi yang menunjukkan cakupan pekerjaan kami pada sistem enterprise, finance, travel, katalog digital, company profile, dan backend automation.</p>
         </div>
       </div>
 
@@ -937,26 +966,26 @@
             <img loading="lazy" src="assets/image-gadai.png" alt="Dashboard Platform Manajemen Gadai Terintegrasi">
           </div>
           <div class="portfolio-copy">
-            <div class="tag">Portfolio / Sistem Operasional Gadai</div>
-            <h3>Platform Manajemen Gadai Terintegrasi</h3>
-            <p>Konsep aplikasi untuk mengelola proses gadai secara end-to-end, mulai dari pengajuan dan penaksiran agunan hingga approval, transaksi, pelunasan, jurnal akuntansi, laporan keuangan, dan monitoring operasional.</p>
+            <div class="tag" data-id="Portfolio / Sistem Operasional Gadai" data-en="Portfolio / Pawn Operations System">Portfolio / Sistem Operasional Gadai</div>
+            <h3 data-id="Platform Manajemen Gadai Terintegrasi" data-en="Integrated Pawn Management Platform">Platform Manajemen Gadai Terintegrasi</h3>
+            <p data-id="Konsep aplikasi untuk mengelola proses gadai secara end-to-end, mulai dari pengajuan dan penaksiran agunan hingga approval, transaksi, pelunasan, jurnal akuntansi, laporan keuangan, dan monitoring operasional." data-en="A concept application for managing pawn operations end-to-end, from submission and collateral appraisal to approval, transactions, repayment, accounting journals, financial reports, and operational monitoring.">Konsep aplikasi untuk mengelola proses gadai secara end-to-end, mulai dari pengajuan dan penaksiran agunan hingga approval, transaksi, pelunasan, jurnal akuntansi, laporan keuangan, dan monitoring operasional.</p>
             <div class="chips">
-              <span class="chip">Pengajuan &amp; Penaksiran</span>
-              <span class="chip pink">Approval Berjenjang</span>
-              <span class="chip">Transaksi &amp; Pelunasan</span>
-              <span class="chip pink">Jurnal &amp; Laporan</span>
-              <span class="chip pink">Akuntansi</span>
-              <span class="chip">Audit Trail</span>
+              <span class="chip" data-id="Pengajuan &amp; Penaksiran" data-en="Submission &amp; Appraisal">Pengajuan &amp; Penaksiran</span>
+              <span class="chip pink" data-id="Approval Berjenjang" data-en="Tiered Approval">Approval Berjenjang</span>
+              <span class="chip" data-id="Transaksi &amp; Pelunasan" data-en="Transactions &amp; Repayment">Transaksi &amp; Pelunasan</span>
+              <span class="chip pink" data-id="Jurnal &amp; Laporan" data-en="Journal &amp; Reports">Jurnal &amp; Laporan</span>
+              <span class="chip pink" data-id="Akuntansi" data-en="Accounting">Akuntansi</span>
+              <span class="chip" data-id="Audit Trail" data-en="Audit Trail">Audit Trail</span>
             </div>
             <ul>
-              <li>Pencatatan nasabah, agunan, nilai taksir, tenor, dan status pengajuan.</li>
-              <li>Approval berdasarkan peran, batas kewenangan, dan nilai transaksi.</li>
-              <li>Pencairan, pembayaran angsuran, pelunasan, dan riwayat transaksi.</li>
-              <li>Modul akuntansi terintegrasi: jurnal otomatis dari setiap transaksi, pencatatan piutang dan pendapatan bunga, penyisihan piutang, neraca, laba rugi, arus kas, dan laporan keuangan sesuai standar.</li>
-              <li>Dashboard monitoring, jejak audit, dan rekonsiliasi transaksi harian.</li>
+              <li data-id="Pencatatan nasabah, agunan, nilai taksir, tenor, dan status pengajuan." data-en="Record customers, collateral, appraisal value, tenor, and submission status.">Pencatatan nasabah, agunan, nilai taksir, tenor, dan status pengajuan.</li>
+              <li data-id="Approval berdasarkan peran, batas kewenangan, dan nilai transaksi." data-en="Approval based on role, authority limits, and transaction value.">Approval berdasarkan peran, batas kewenangan, dan nilai transaksi.</li>
+              <li data-id="Pencairan, pembayaran angsuran, pelunasan, dan riwayat transaksi." data-en="Disbursement, installment payments, repayment, and transaction history.">Pencairan, pembayaran angsuran, pelunasan, dan riwayat transaksi.</li>
+              <li data-id="Modul akuntansi terintegrasi: jurnal otomatis dari setiap transaksi, pencatatan piutang dan pendapatan bunga, penyisihan piutang, neraca, laba rugi, arus kas, dan laporan keuangan sesuai standar." data-en="Integrated accounting module: automatic journals from every transaction, receivable and interest income recording, allowance for bad debts, balance sheet, income statement, cash flow, and standard financial reports.">Modul akuntansi terintegrasi: jurnal otomatis dari setiap transaksi, pencatatan piutang dan pendapatan bunga, penyisihan piutang, neraca, laba rugi, arus kas, dan laporan keuangan sesuai standar.</li>
+              <li data-id="Dashboard monitoring, jejak audit, dan rekonsiliasi transaksi harian." data-en="Monitoring dashboard, audit trail, and daily transaction reconciliation.">Dashboard monitoring, jejak audit, dan rekonsiliasi transaksi harian.</li>
             </ul>
             <div class="portfolio-copy-flow">
-              <div class="eyebrow" style="margin-bottom: 14px;">Alur Operasional</div>
+              <div class="eyebrow" style="margin-bottom: 14px;" data-id="Alur Operasional" data-en="Operational Flow">Alur Operasional</div>
               <div class="pawn-flow-list compact" aria-label="Tahapan sistem operasional gadai">
                 <div class="pawn-flow-step"><span>01</span><div><strong>Pengajuan</strong><small>Data nasabah dan agunan</small></div></div>
                 <div class="pawn-flow-step"><span>02</span><div><strong>Penaksiran</strong><small>Nilai agunan dan pembiayaan</small></div></div>
@@ -974,12 +1003,12 @@
             <img loading="lazy" src="assets/portfolio-travel.jpg" alt="Portfolio website Diluar Cost Travel">
           </div>
           <div class="portfolio-copy">
-            <div class="tag">Portfolio / Travel Website</div>
-            <h3>Diluar Cost Travel UI</h3>
-            <p>Website travel company dengan booking search, destination cards, package tour, testimonials, gallery, dan footer contact.</p>
-            <div class="chips"><span class="chip">UI/UX</span><span class="chip pink">Travel</span><span class="chip">Company Profile</span></div>
+            <div class="tag" data-id="Portfolio / Travel Website" data-en="Portfolio / Travel Website">Portfolio / Travel Website</div>
+            <h3 data-id="Diluar Cost Travel UI" data-en="Diluar Cost Travel UI">Diluar Cost Travel UI</h3>
+            <p data-id="Website travel company dengan booking search, destination cards, package tour, testimonials, gallery, dan footer contact." data-en="A travel company website with booking search, destination cards, package tours, testimonials, gallery, and footer contact.">Website travel company dengan booking search, destination cards, package tour, testimonials, gallery, dan footer contact.</p>
+            <div class="chips"><span class="chip" data-id="UI/UX" data-en="UI/UX">UI/UX</span><span class="chip pink" data-id="Travel" data-en="Travel">Travel</span><span class="chip" data-id="Company Profile" data-en="Company Profile">Company Profile</span></div>
             <div class="portfolio-copy-flow">
-              <div class="eyebrow" style="margin-bottom: 14px;">Alur Pemesanan</div>
+              <div class="eyebrow" style="margin-bottom: 14px;" data-id="Alur Pemesanan" data-en="Booking Flow">Alur Pemesanan</div>
               <div class="pawn-flow-list compact" aria-label="Alur pemesanan travel">
                 <div class="pawn-flow-step"><span>01</span><div><strong>Cari</strong><small>Destinasi &amp; paket</small></div></div>
                 <div class="pawn-flow-step"><span>02</span><div><strong>Pilih</strong><small>Jadwal &amp; fasilitas</small></div></div>
@@ -997,12 +1026,12 @@
             <img loading="lazy" src="assets/portfolio-fashion.jpg" alt="Portfolio fashion rental web">
           </div>
           <div class="portfolio-copy">
-            <div class="tag">Portfolio / E-Commerce Catalog</div>
-            <h3>Fashion Rental Web</h3>
-            <p>Katalog produk rental dress dengan kategori event, filter, search, product overview, dan informasi ketersediaan produk.</p>
-            <div class="chips"><span class="chip">Catalog</span><span class="chip pink">Search/Filter</span><span class="chip">Product Cards</span></div>
+            <div class="tag" data-id="Portfolio / E-Commerce Catalog" data-en="Portfolio / E-Commerce Catalog">Portfolio / E-Commerce Catalog</div>
+            <h3 data-id="Fashion Rental Web" data-en="Fashion Rental Web">Fashion Rental Web</h3>
+            <p data-id="Katalog produk rental dress dengan kategori event, filter, search, product overview, dan informasi ketersediaan produk." data-en="A dress rental product catalog with event categories, filters, search, product overview, and availability information.">Katalog produk rental dress dengan kategori event, filter, search, product overview, dan informasi ketersediaan produk.</p>
+            <div class="chips"><span class="chip" data-id="Catalog" data-en="Catalog">Catalog</span><span class="chip pink" data-id="Search/Filter" data-en="Search/Filter">Search/Filter</span><span class="chip" data-id="Product Cards" data-en="Product Cards">Product Cards</span></div>
             <div class="portfolio-copy-flow">
-              <div class="eyebrow" style="margin-bottom: 14px;">Alur Rental</div>
+              <div class="eyebrow" style="margin-bottom: 14px;" data-id="Alur Rental" data-en="Rental Flow">Alur Rental</div>
               <div class="pawn-flow-list compact" aria-label="Alur rental fashion">
                 <div class="pawn-flow-step"><span>01</span><div><strong>Event</strong><small>Pilih kategori</small></div></div>
                 <div class="pawn-flow-step"><span>02</span><div><strong>Cari</strong><small>Filter &amp; pilih dress</small></div></div>
@@ -1020,12 +1049,12 @@
             <img loading="lazy" src="assets/portfolio-uniform.jpg" alt="Portfolio uniform company web">
           </div>
           <div class="portfolio-copy">
-            <div class="tag">Portfolio / Company Website</div>
-            <h3>Uniform Company Web</h3>
-            <p>Company website untuk showcase produk seragam, hero section, client portfolio, testimoni, CTA kontak, dan channel toko online.</p>
-            <div class="chips"><span class="chip">Corporate Website</span><span class="chip pink">Product Showcase</span><span class="chip">Client Portfolio</span></div>
+            <div class="tag" data-id="Portfolio / Company Website" data-en="Portfolio / Company Website">Portfolio / Company Website</div>
+            <h3 data-id="Uniform Company Web" data-en="Uniform Company Web">Uniform Company Web</h3>
+            <p data-id="Company website untuk showcase produk seragam, hero section, client portfolio, testimoni, CTA kontak, dan channel toko online." data-en="A company website to showcase uniform products, hero section, client portfolio, testimonials, contact CTA, and online store channels.">Company website untuk showcase produk seragam, hero section, client portfolio, testimoni, CTA kontak, dan channel toko online.</p>
+            <div class="chips"><span class="chip" data-id="Corporate Website" data-en="Corporate Website">Corporate Website</span><span class="chip pink" data-id="Product Showcase" data-en="Product Showcase">Product Showcase</span><span class="chip" data-id="Client Portfolio" data-en="Client Portfolio">Client Portfolio</span></div>
             <div class="portfolio-copy-flow">
-              <div class="eyebrow" style="margin-bottom: 14px;">Alur Pemesanan</div>
+              <div class="eyebrow" style="margin-bottom: 14px;" data-id="Alur Pemesanan" data-en="Order Flow">Alur Pemesanan</div>
               <div class="pawn-flow-list compact" aria-label="Alur pemesanan seragam">
                 <div class="pawn-flow-step"><span>01</span><div><strong>Katalog</strong><small>Lihat produk</small></div></div>
                 <div class="pawn-flow-step"><span>02</span><div><strong>Pilih</strong><small>Model &amp; warna</small></div></div>
@@ -1043,17 +1072,17 @@
             <img loading="lazy" src="assets/image-computing.png" alt="DiluarCost Cloud &amp; Automation Dashboard">
           </div>
           <div class="portfolio-copy">
-            <div class="tag">Portfolio / Cloud &amp; Automation</div>
-            <h3>Cloud Storage SaaS &amp; Automation</h3>
-            <p>Solusi backend, API, cloud storage, automation workflow, dan integrasi sistem untuk mendukung kebutuhan aplikasi bisnis yang scalable.</p>
-            <div class="chips"><span class="chip">Golang</span><span class="chip">REST API</span><span class="chip pink">Cloud Native</span><span class="chip">Automation</span></div>
+            <div class="tag" data-id="Portfolio / Cloud &amp; Automation" data-en="Portfolio / Cloud &amp; Automation">Portfolio / Cloud &amp; Automation</div>
+            <h3 data-id="Cloud Storage SaaS &amp; Automation" data-en="Cloud Storage SaaS &amp; Automation">Cloud Storage SaaS &amp; Automation</h3>
+            <p data-id="Solusi backend, API, cloud storage, automation workflow, dan integrasi sistem untuk mendukung kebutuhan aplikasi bisnis yang scalable." data-en="Backend, API, cloud storage, automation workflow, and system integration solutions to support scalable business applications.">Solusi backend, API, cloud storage, automation workflow, dan integrasi sistem untuk mendukung kebutuhan aplikasi bisnis yang scalable.</p>
+            <div class="chips"><span class="chip">Golang</span><span class="chip">REST API</span><span class="chip pink" data-id="Cloud Native" data-en="Cloud Native">Cloud Native</span><span class="chip" data-id="Automation" data-en="Automation">Automation</span></div>
             <ul>
-              <li>Backend service, data processing, dan file management.</li>
-              <li>Integrasi API, monitoring, logging, dan deployment support.</li>
-              <li>Disiapkan untuk kebutuhan enterprise dan multi-user.</li>
+              <li data-id="Backend service, data processing, dan file management." data-en="Backend service, data processing, and file management.">Backend service, data processing, dan file management.</li>
+              <li data-id="Integrasi API, monitoring, logging, dan deployment support." data-en="API integration, monitoring, logging, and deployment support.">Integrasi API, monitoring, logging, dan deployment support.</li>
+              <li data-id="Disiapkan untuk kebutuhan enterprise dan multi-user." data-en="Prepared for enterprise and multi-user needs.">Disiapkan untuk kebutuhan enterprise dan multi-user.</li>
             </ul>
             <div class="portfolio-copy-flow">
-              <div class="eyebrow" style="margin-bottom: 14px;">Alur Automation</div>
+              <div class="eyebrow" style="margin-bottom: 14px;" data-id="Alur Automation" data-en="Automation Flow">Alur Automation</div>
               <div class="pawn-flow-list compact" aria-label="Alur automation cloud">
                 <div class="pawn-flow-step"><span>01</span><div><strong>Trigger</strong><small>Event atau jadwal</small></div></div>
                 <div class="pawn-flow-step"><span>02</span><div><strong>Eksekusi</strong><small>Workflow engine</small></div></div>
@@ -1071,19 +1100,19 @@
             <img loading="lazy" src="assets/image-pos.png" alt="DiluarCost POS System Dashboard">
           </div>
           <div class="portfolio-copy">
-            <div class="tag">Portfolio / Point of Sale System</div>
-            <h3>POS System untuk Retail &amp; F&amp;B</h3>
-            <p>Sistem kasir digital yang mengintegrasikan transaksi penjualan, manajemen produk, inventori real-time, membership, multi-payment, dan laporan keuangan untuk bisnis retail maupun F&amp;B.</p>
-            <div class="chips"><span class="chip">Transaksi</span><span class="chip pink">Inventori</span><span class="chip">Multi-Payment</span><span class="chip pink">Membership</span><span class="chip">Laporan</span><span class="chip">Akuntansi</span></div>
+            <div class="tag" data-id="Portfolio / Point of Sale System" data-en="Portfolio / Point of Sale System">Portfolio / Point of Sale System</div>
+            <h3 data-id="POS System untuk Retail &amp; F&amp;B" data-en="POS System for Retail &amp; F&amp;B">POS System untuk Retail &amp; F&amp;B</h3>
+            <p data-id="Sistem kasir digital yang mengintegrasikan transaksi penjualan, manajemen produk, inventori real-time, membership, multi-payment, dan laporan keuangan untuk bisnis retail maupun F&amp;B." data-en="A digital cashier system that integrates sales transactions, product management, real-time inventory, membership, multi-payment, and financial reports for retail and F&amp;B businesses.">Sistem kasir digital yang mengintegrasikan transaksi penjualan, manajemen produk, inventori real-time, membership, multi-payment, dan laporan keuangan untuk bisnis retail maupun F&amp;B.</p>
+            <div class="chips"><span class="chip" data-id="Transaksi" data-en="Transactions">Transaksi</span><span class="chip pink" data-id="Inventori" data-en="Inventory">Inventori</span><span class="chip" data-id="Multi-Payment" data-en="Multi-Payment">Multi-Payment</span><span class="chip pink" data-id="Membership" data-en="Membership">Membership</span><span class="chip" data-id="Laporan" data-en="Reports">Laporan</span><span class="chip" data-id="Akuntansi" data-en="Accounting">Akuntansi</span></div>
             <ul>
-              <li>Transaksi cepat dengan barcode scanner, pencarian produk, diskon, pajak, dan split bill.</li>
-              <li>Manajemen produk, kategori, SKU, varian, harga grosir, dan stok multi-cabang.</li>
-              <li>Pembayaran tunai, kartu debit/kredit, QRIS, e-wallet, dan split payment.</li>
-              <li>Membership, poin reward, voucher, promo, dan riwayat pembelian pelanggan.</li>
-              <li>Laporan penjualan harian, shift, kasir, laba per item, dan integrasi jurnal akuntansi otomatis.</li>
+              <li data-id="Transaksi cepat dengan barcode scanner, pencarian produk, diskon, pajak, dan split bill." data-en="Fast transactions with barcode scanner, product search, discounts, tax, and split bill.">Transaksi cepat dengan barcode scanner, pencarian produk, diskon, pajak, dan split bill.</li>
+              <li data-id="Manajemen produk, kategori, SKU, varian, harga grosir, dan stok multi-cabang." data-en="Product, category, SKU, variant, wholesale price, and multi-branch stock management.">Manajemen produk, kategori, SKU, varian, harga grosir, dan stok multi-cabang.</li>
+              <li data-id="Pembayaran tunai, kartu debit/kredit, QRIS, e-wallet, dan split payment." data-en="Cash, debit/credit card, QRIS, e-wallet, and split payment.">Pembayaran tunai, kartu debit/kredit, QRIS, e-wallet, dan split payment.</li>
+              <li data-id="Membership, poin reward, voucher, promo, dan riwayat pembelian pelanggan." data-en="Membership, reward points, vouchers, promos, and customer purchase history.">Membership, poin reward, voucher, promo, dan riwayat pembelian pelanggan.</li>
+              <li data-id="Laporan penjualan harian, shift, kasir, laba per item, dan integrasi jurnal akuntansi otomatis." data-en="Daily sales, shift, cashier, profit per item reports, and automatic accounting journal integration.">Laporan penjualan harian, shift, kasir, laba per item, dan integrasi jurnal akuntansi otomatis.</li>
             </ul>
             <div class="portfolio-copy-flow">
-              <div class="eyebrow" style="margin-bottom: 14px;">Alur Penjualan</div>
+              <div class="eyebrow" style="margin-bottom: 14px;" data-id="Alur Penjualan" data-en="Sales Flow">Alur Penjualan</div>
               <div class="pawn-flow-list compact" aria-label="Alur penjualan POS">
                 <div class="pawn-flow-step"><span>01</span><div><strong>Pilih</strong><small>Produk &amp; qty</small></div></div>
                 <div class="pawn-flow-step"><span>02</span><div><strong>Total</strong><small>Hitung &amp; pajak</small></div></div>
@@ -1102,17 +1131,17 @@
     <div class="container">
       <div class="section-top">
         <div class="section-title">
-          <div class="eyebrow">Cara Kami Bekerja</div>
-          <h2>Proses yang <span class="accent">Terarah</span></h2>
-          <p>Setiap proyek dimulai dari tujuan bisnis yang jelas, lalu diterjemahkan menjadi desain sistem, pengembangan bertahap, pengujian, dan dukungan setelah peluncuran.</p>
+          <div class="eyebrow" data-id="Cara Kami Bekerja" data-en="How We Work">Cara Kami Bekerja</div>
+          <h2 data-id-html="Proses yang <span class='accent'>Terarah</span>" data-en-html="A Focused <span class='accent'>Process</span>">Proses yang <span class="accent">Terarah</span></h2>
+          <p data-id="Setiap proyek dimulai dari tujuan bisnis yang jelas, lalu diterjemahkan menjadi desain sistem, pengembangan bertahap, pengujian, dan dukungan setelah peluncuran." data-en="Every project starts from clear business goals, then translated into system design, iterative development, testing, and post-launch support.">Setiap proyek dimulai dari tujuan bisnis yang jelas, lalu diterjemahkan menjadi desain sistem, pengembangan bertahap, pengujian, dan dukungan setelah peluncuran.</p>
         </div>
       </div>
       <div class="method-list">
-        <div class="method-card"><div class="num">01</div><div><h3>Requirement Gathering</h3><p>Identifikasi tujuan bisnis, kebutuhan user, proses existing, dan constraint teknis.</p></div></div>
-        <div class="method-card"><div class="num">02</div><div><h3>System Design</h3><p>Penyusunan HLD, database schema, API definition, role, flow, dan security requirement.</p></div></div>
-        <div class="method-card"><div class="num">03</div><div><h3>Agile Development</h3><p>Iterative coding, prototyping, review progress, dan penyesuaian fitur berdasarkan feedback.</p></div></div>
-        <div class="method-card"><div class="num">04</div><div><h3>Testing &amp; QA</h3><p>Functional testing, regression test, stress test, UAT support, defect tracking, dan re-test.</p></div></div>
-        <div class="method-card"><div class="num">05</div><div><h3>Deployment &amp; Support</h3><p>Deployment, monitoring, maintenance, troubleshooting, dan support setelah go-live.</p></div></div>
+        <div class="method-card"><div class="num">01</div><div><h3 data-id="Requirement Gathering" data-en="Requirement Gathering">Requirement Gathering</h3><p data-id="Identifikasi tujuan bisnis, kebutuhan user, proses existing, dan constraint teknis." data-en="Identify business goals, user needs, existing processes, and technical constraints.">Identifikasi tujuan bisnis, kebutuhan user, proses existing, dan constraint teknis.</p></div></div>
+        <div class="method-card"><div class="num">02</div><div><h3 data-id="System Design" data-en="System Design">System Design</h3><p data-id="Penyusunan HLD, database schema, API definition, role, flow, dan security requirement." data-en="Prepare HLD, database schema, API definition, roles, flows, and security requirements.">Penyusunan HLD, database schema, API definition, role, flow, dan security requirement.</p></div></div>
+        <div class="method-card"><div class="num">03</div><div><h3 data-id="Agile Development" data-en="Agile Development">Agile Development</h3><p data-id="Iterative coding, prototyping, review progress, dan penyesuaian fitur berdasarkan feedback." data-en="Iterative coding, prototyping, progress review, and feature adjustments based on feedback.">Iterative coding, prototyping, review progress, dan penyesuaian fitur berdasarkan feedback.</p></div></div>
+        <div class="method-card"><div class="num">04</div><div><h3 data-id="Testing &amp; QA" data-en="Testing &amp; QA">Testing &amp; QA</h3><p data-id="Functional testing, regression test, stress test, UAT support, defect tracking, dan re-test." data-en="Functional testing, regression test, stress test, UAT support, defect tracking, and re-test.">Functional testing, regression test, stress test, UAT support, defect tracking, dan re-test.</p></div></div>
+        <div class="method-card"><div class="num">05</div><div><h3 data-id="Deployment &amp; Support" data-en="Deployment &amp; Support">Deployment &amp; Support</h3><p data-id="Deployment, monitoring, maintenance, troubleshooting, dan support setelah go-live." data-en="Deployment, monitoring, maintenance, troubleshooting, and support after go-live.">Deployment, monitoring, maintenance, troubleshooting, dan support setelah go-live.</p></div></div>
       </div>
     </div>
   </section>
@@ -1121,32 +1150,32 @@
     <div class="container">
       <div class="section-top">
         <div class="section-title">
-          <div class="eyebrow">Mengapa DILUAR COST</div>
-          <h2>Partner Teknis yang<br><span class="accent">Memahami Bisnis</span></h2>
-          <p>Kami menggabungkan analisis proses, engineering, quality assurance, dan pengalaman implementasi agar solusi tidak hanya selesai dibuat, tetapi juga siap digunakan.</p>
+          <div class="eyebrow" data-id="Mengapa DILUAR COST" data-en="Why DILUAR COST">Mengapa DILUAR COST</div>
+          <h2 data-id-html="Partner Teknis yang<br><span class='accent'>Memahami Bisnis</span>" data-en-html="A Technical Partner that<br><span class='accent'>Understands Business</span>">Partner Teknis yang<br><span class="accent">Memahami Bisnis</span></h2>
+          <p data-id="Kami menggabungkan analisis proses, engineering, quality assurance, dan pengalaman implementasi agar solusi tidak hanya selesai dibuat, tetapi juga siap digunakan." data-en="We combine process analysis, engineering, quality assurance, and implementation experience so solutions are not only built, but also ready to use.">Kami menggabungkan analisis proses, engineering, quality assurance, dan pengalaman implementasi agar solusi tidak hanya selesai dibuat, tetapi juga siap digunakan.</p>
         </div>
       </div>
 
       <div class="value-grid">
         <article class="value-card">
-          <span>01 / Business First</span>
-          <h3>Berangkat dari Kebutuhan Nyata</h3>
-          <p>Fitur dan arsitektur disusun berdasarkan tujuan bisnis, alur pengguna, serta kendala operasional yang perlu diselesaikan.</p>
+          <span data-id="01 / Business First" data-en="01 / Business First">01 / Business First</span>
+          <h3 data-id="Berangkat dari Kebutuhan Nyata" data-en="Start from Real Needs">Berangkat dari Kebutuhan Nyata</h3>
+          <p data-id="Fitur dan arsitektur disusun berdasarkan tujuan bisnis, alur pengguna, serta kendala operasional yang perlu diselesaikan." data-en="Features and architecture are designed based on business goals, user flows, and operational constraints to be solved.">Fitur dan arsitektur disusun berdasarkan tujuan bisnis, alur pengguna, serta kendala operasional yang perlu diselesaikan.</p>
         </article>
         <article class="value-card">
-          <span>02 / End to End</span>
-          <h3>Satu Alur Delivery</h3>
-          <p>Analisis, desain, development, testing, deployment, dan support dikelola sebagai rangkaian kerja yang saling terhubung.</p>
+          <span data-id="02 / End to End" data-en="02 / End to End">02 / End to End</span>
+          <h3 data-id="Satu Alur Delivery" data-en="One Delivery Flow">Satu Alur Delivery</h3>
+          <p data-id="Analisis, desain, development, testing, deployment, dan support dikelola sebagai rangkaian kerja yang saling terhubung." data-en="Analysis, design, development, testing, deployment, and support are managed as an interconnected workflow.">Analisis, desain, development, testing, deployment, dan support dikelola sebagai rangkaian kerja yang saling terhubung.</p>
         </article>
         <article class="value-card">
-          <span>03 / Quality</span>
-          <h3>Siap Digunakan dan Dikembangkan</h3>
-          <p>Kami memperhatikan keamanan, performa, maintainability, testing, serta kesiapan operasional sebelum aplikasi dirilis.</p>
+          <span data-id="03 / Quality" data-en="03 / Quality">03 / Quality</span>
+          <h3 data-id="Siap Digunakan dan Dikembangkan" data-en="Ready to Use and Scale">Siap Digunakan dan Dikembangkan</h3>
+          <p data-id="Kami memperhatikan keamanan, performa, maintainability, testing, serta kesiapan operasional sebelum aplikasi dirilis." data-en="We pay attention to security, performance, maintainability, testing, and operational readiness before release.">Kami memperhatikan keamanan, performa, maintainability, testing, serta kesiapan operasional sebelum aplikasi dirilis.</p>
         </article>
         <article class="value-card">
-          <span>04 / Collaboration</span>
-          <h3>Komunikasi yang Terbuka</h3>
-          <p>Progress, risiko, dan keputusan teknis dibahas secara transparan agar tim bisnis tetap memahami arah pengembangan.</p>
+          <span data-id="04 / Collaboration" data-en="04 / Collaboration">04 / Collaboration</span>
+          <h3 data-id="Komunikasi yang Terbuka" data-en="Open Communication">Komunikasi yang Terbuka</h3>
+          <p data-id="Progress, risiko, dan keputusan teknis dibahas secara transparan agar tim bisnis tetap memahami arah pengembangan." data-en="Progress, risks, and technical decisions are discussed transparently so the business team understands the development direction.">Progress, risiko, dan keputusan teknis dibahas secara transparan agar tim bisnis tetap memahami arah pengembangan.</p>
         </article>
       </div>
     </div>
@@ -1156,64 +1185,64 @@
     <div class="container">
       <div class="section-top">
         <div class="section-title">
-          <div class="eyebrow">Pertanyaan Umum</div>
+          <div class="eyebrow" data-id="Pertanyaan Umum" data-en="Frequently Asked Questions">Pertanyaan Umum</div>
           <h2>FAQ</h2>
-          <p>Jawaban atas pertanyaan yang sering diajukan seputar proses kerja, layanan, harga, dan timeline pengembangan.</p>
+          <p data-id="Jawaban atas pertanyaan yang sering diajukan seputar proses kerja, layanan, harga, dan timeline pengembangan." data-en="Answers to common questions about our work process, services, pricing, and development timeline.">Jawaban atas pertanyaan yang sering diajukan seputar proses kerja, layanan, harga, dan timeline pengembangan.</p>
         </div>
       </div>
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq-1">
-            <span>Berapa lama waktu yang dibutuhkan untuk membangun sebuah aplikasi?</span>
+            <span data-id="Berapa lama waktu yang dibutuhkan untuk membangun sebuah aplikasi?" data-en="How long does it take to build an application?">Berapa lama waktu yang dibutuhkan untuk membangun sebuah aplikasi?</span>
             <span class="faq-icon" aria-hidden="true"></span>
           </button>
           <div id="faq-1" class="faq-answer" role="region">
-            <div class="faq-answer-inner">Durasi bergantung pada kompleksitas fitur, jumlah integrasi, dan kesiapan requirement. Company profile sederhana bisa selesai dalam 2–4 minggu, sementara sistem bisnis dengan workflow dan approval biasanya membutuhkan 2–4 bulan. Kami akan memberikan estimasi timeline yang lebih spesifik setelah diskusi kebutuhan.</div>
+            <div class="faq-answer-inner" data-id="Durasi bergantung pada kompleksitas fitur, jumlah integrasi, dan kesiapan requirement. Company profile sederhana bisa selesai dalam 2–4 minggu, sementara sistem bisnis dengan workflow dan approval biasanya membutuhkan 2–4 bulan. Kami akan memberikan estimasi timeline yang lebih spesifik setelah diskusi kebutuhan." data-en="Duration depends on feature complexity, number of integrations, and requirement readiness. A simple company profile can be completed in 2–4 weeks, while business systems with workflow and approval typically require 2–4 months. We will provide a more specific timeline estimate after discussing your needs.">Durasi bergantung pada kompleksitas fitur, jumlah integrasi, dan kesiapan requirement. Company profile sederhana bisa selesai dalam 2–4 minggu, sementara sistem bisnis dengan workflow dan approval biasanya membutuhkan 2–4 bulan. Kami akan memberikan estimasi timeline yang lebih spesifik setelah diskusi kebutuhan.</div>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq-2">
-            <span>Berapa kisaran biaya pengembangan aplikasi?</span>
+            <span data-id="Berapa kisaran biaya pengembangan aplikasi?" data-en="What is the estimated cost of application development?">Berapa kisaran biaya pengembangan aplikasi?</span>
             <span class="faq-icon" aria-hidden="true"></span>
           </button>
           <div id="faq-2" class="faq-answer" role="region">
-            <div class="faq-answer-inner">Biaya disesuaikan dengan scope, teknologi, dan dukungan pasca-launch. Kami menawarkan model fleksibel yang bisa disesuaikan dengan tahap dan anggaran bisnis Anda. Silakan <a href="https://wa.me/6281315776431?text=Halo%20DILUAR%20COST%2C%20saya%20ingin%20diskusi%20estimasi%20biaya%20proyek." target="_blank" rel="noopener">diskusikan kebutuhan</a> agar kami bisa memberikan estimasi yang relevan.</div>
+            <div class="faq-answer-inner" data-id-html="Biaya disesuaikan dengan scope, teknologi, dan dukungan pasca-launch. Kami menawarkan model fleksibel yang bisa disesuaikan dengan tahap dan anggaran bisnis Anda. Silakan <a href='https://wa.me/6281315776431?text=Halo%20DILUAR%20COST%2C%20saya%20ingin%20diskusi%20estimasi%20biaya%20proyek.' target='_blank' rel='noopener'>diskusikan kebutuhan</a> agar kami bisa memberikan estimasi yang relevan." data-en-html="Cost is adjusted to scope, technology, and post-launch support. We offer a flexible model that can be tailored to your business stage and budget. Please <a href='https://wa.me/6281315776431?text=Hello%20DILUAR%20COST%2C%20I%20want%20to%20discuss%20project%20cost%20estimation.' target='_blank' rel='noopener'>discuss your needs</a> so we can provide a relevant estimate.">Biaya disesuaikan dengan scope, teknologi, dan dukungan pasca-launch. Kami menawarkan model fleksibel yang bisa disesuaikan dengan tahap dan anggaran bisnis Anda. Silakan <a href="https://wa.me/6281315776431?text=Halo%20DILUAR%20COST%2C%20saya%20ingin%20diskusi%20estimasi%20biaya%20proyek." target="_blank" rel="noopener">diskusikan kebutuhan</a> agar kami bisa memberikan estimasi yang relevan.</div>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq-3">
-            <span>Apakah saya akan mendapatkan source code dan dokumentasi?</span>
+            <span data-id="Apakah saya akan mendapatkan source code dan dokumentasi?" data-en="Will I get the source code and documentation?">Apakah saya akan mendapatkan source code dan dokumentasi?</span>
             <span class="faq-icon" aria-hidden="true"></span>
           </button>
           <div id="faq-3" class="faq-answer" role="region">
-            <div class="faq-answer-inner">Ya. Klien mendapatkan akses source code, dokumentasi teknis dasar, dan panduan deployment. Untuk proyek tertentu, kami juga menyertakan diagram arsitektur, skema database, dan daftar API endpoint.</div>
+            <div class="faq-answer-inner" data-id="Ya. Klien mendapatkan akses source code, dokumentasi teknis dasar, dan panduan deployment. Untuk proyek tertentu, kami juga menyertakan diagram arsitektur, skema database, dan daftar API endpoint." data-en="Yes. Clients get access to source code, basic technical documentation, and deployment guidelines. For certain projects, we also include architecture diagrams, database schemas, and API endpoint lists.">Ya. Klien mendapatkan akses source code, dokumentasi teknis dasar, dan panduan deployment. Untuk proyek tertentu, kami juga menyertakan diagram arsitektur, skema database, dan daftar API endpoint.</div>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq-4">
-            <span>Bagaimana proses komunikasi dan update progress?</span>
+            <span data-id="Bagaimana proses komunikasi dan update progress?" data-en="How is communication and progress update handled?">Bagaimana proses komunikasi dan update progress?</span>
             <span class="faq-icon" aria-hidden="true"></span>
           </button>
           <div id="faq-4" class="faq-answer" role="region">
-            <div class="faq-answer-inner">Kami mengadakan sesi kickoff, update progress berkala, dan review hasil iterasi. Komunikasi biasanya dilakukan melalui WhatsApp, email, atau video call sesuai kesepakatan. Setiap keputusan teknis dan risiko juga dibahas secara transparan.</div>
+            <div class="faq-answer-inner" data-id="Kami mengadakan sesi kickoff, update progress berkala, dan review hasil iterasi. Komunikasi biasanya dilakukan melalui WhatsApp, email, atau video call sesuai kesepakatan. Setiap keputusan teknis dan risiko juga dibahas secara transparan." data-en="We conduct kickoff sessions, regular progress updates, and iteration reviews. Communication is usually done via WhatsApp, email, or video call as agreed. Every technical decision and risk is also discussed transparently.">Kami mengadakan sesi kickoff, update progress berkala, dan review hasil iterasi. Komunikasi biasanya dilakukan melalui WhatsApp, email, atau video call sesuai kesepakatan. Setiap keputusan teknis dan risiko juga dibahas secara transparan.</div>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq-5">
-            <span>Apakah DILUAR COST menerima revisi setelah aplikasi selesai?</span>
+            <span data-id="Apakah DILUAR COST menerima revisi setelah aplikasi selesai?" data-en="Does DILUAR COST accept revisions after the application is completed?">Apakah DILUAR COST menerima revisi setelah aplikasi selesai?</span>
             <span class="faq-icon" aria-hidden="true"></span>
           </button>
           <div id="faq-5" class="faq-answer" role="region">
-            <div class="faq-answer-inner">Revisi minor yang masih dalam scope awal akan ditangani selama masa warranty. Untuk perubahan fitur atau scope baru, kami akan diskusikan kembali sebagai iterasi atau enhancement berikutnya dengan estimasi tambahan.</div>
+            <div class="faq-answer-inner" data-id="Revisi minor yang masih dalam scope awal akan ditangani selama masa warranty. Untuk perubahan fitur atau scope baru, kami akan diskusikan kembali sebagai iterasi atau enhancement berikutnya dengan estimasi tambahan." data-en="Minor revisions within the initial scope will be handled during the warranty period. For feature changes or new scope, we will discuss them again as the next iteration or enhancement with additional estimates.">Revisi minor yang masih dalam scope awal akan ditangani selama masa warranty. Untuk perubahan fitur atau scope baru, kami akan diskusikan kembali sebagai iterasi atau enhancement berikutnya dengan estimasi tambahan.</div>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false" aria-controls="faq-6">
-            <span>Apakah ada layanan maintenance setelah aplikasi go-live?</span>
+            <span data-id="Apakah ada layanan maintenance setelah aplikasi go-live?" data-en="Is there maintenance service after the application goes live?">Apakah ada layanan maintenance setelah aplikasi go-live?</span>
             <span class="faq-icon" aria-hidden="true"></span>
           </button>
           <div id="faq-6" class="faq-answer" role="region">
-            <div class="faq-answer-inner">Ya. Kami menyediakan layanan maintenance dan support pasca-launch yang mencakup monitoring, troubleshooting, backup, perbaikan bug, dan pengembangan fitur tambahan sesuai kebutuhan.</div>
+            <div class="faq-answer-inner" data-id="Ya. Kami menyediakan layanan maintenance dan support pasca-launch yang mencakup monitoring, troubleshooting, backup, perbaikan bug, dan pengembangan fitur tambahan sesuai kebutuhan." data-en="Yes. We provide post-launch maintenance and support services covering monitoring, troubleshooting, backup, bug fixes, and additional feature development as needed.">Ya. Kami menyediakan layanan maintenance dan support pasca-launch yang mencakup monitoring, troubleshooting, backup, perbaikan bug, dan pengembangan fitur tambahan sesuai kebutuhan.</div>
           </div>
         </div>
       </div>
@@ -1223,13 +1252,13 @@
   <section class="contact" id="contact">
     <div class="container contact-grid">
       <div class="section-title">
-        <div class="eyebrow">Mulai Diskusi</div>
-        <h2>Mari Wujudkan<br><span class="accent">Produk Digital Anda</span></h2>
-        <p>Ceritakan kebutuhan, proses yang ingin diperbaiki, atau ide produk yang ingin dikembangkan. Kami akan membantu memetakan langkah awal yang paling relevan.</p>
+        <div class="eyebrow" data-id="Mulai Diskusi" data-en="Start a Discussion">Mulai Diskusi</div>
+        <h2 data-id-html="Mari Wujudkan<br><span class='accent'>Produk Digital Anda</span>" data-en-html="Let's Build<br><span class='accent'>Your Digital Product</span>">Mari Wujudkan<br><span class="accent">Produk Digital Anda</span></h2>
+        <p data-id="Ceritakan kebutuhan, proses yang ingin diperbaiki, atau ide produk yang ingin dikembangkan. Kami akan membantu memetakan langkah awal yang paling relevan." data-en="Tell us your needs, processes you want to improve, or product ideas you want to develop. We will help map out the most relevant first steps.">Ceritakan kebutuhan, proses yang ingin diperbaiki, atau ide produk yang ingin dikembangkan. Kami akan membantu memetakan langkah awal yang paling relevan.</p>
       </div>
       <div class="contact-boxes">
-        <a class="contact-box contact-link" href="mailto:diluarcost@gmail.com"><span>Email</span><strong>diluarcost@gmail.com</strong></a>
-        <a class="contact-box contact-link" href="https://wa.me/6281315776431?text=Halo%20DILUAR%20COST%2C%20saya%20ingin%20konsultasi%20pembuatan%20website%20atau%20aplikasi." target="_blank" rel="noopener"><span>Konsultasi via WhatsApp</span><strong>+62 813-1577-6431</strong></a>
+        <a class="contact-box contact-link" href="mailto:diluarcost@gmail.com"><span data-id="Email" data-en="Email">Email</span><strong>diluarcost@gmail.com</strong></a>
+        <a class="contact-box contact-link" href="https://wa.me/6281315776431?text=Halo%20DILUAR%20COST%2C%20saya%20ingin%20konsultasi%20pembuatan%20website%20atau%20aplikasi." target="_blank" rel="noopener"><span data-id="Konsultasi via WhatsApp" data-en="Consult via WhatsApp">Konsultasi via WhatsApp</span><strong>+62 813-1577-6431</strong></a>
       </div>
     </div>
   </section>
@@ -1247,9 +1276,9 @@
           </div>
         </div>
       </div>
-      <div>© 2026 DILUAR COST. All Rights Reserved.</div>
+      <div data-id="© 2026 DILUAR COST. All Rights Reserved." data-en="© 2026 DILUAR COST. All Rights Reserved.">© 2026 DILUAR COST. All Rights Reserved.</div>
       <div class="social">
-        <a href="mailto:diluarcost@gmail.com" aria-label="Email DILUAR COST">Email</a>
+        <a href="mailto:diluarcost@gmail.com" aria-label="Email DILUAR COST" data-id="Email" data-en="Email">Email</a>
         <a href="https://wa.me/6281315776431?text=Halo%20DILUAR%20COST%2C%20saya%20ingin%20konsultasi%20pembuatan%20website%20atau%20aplikasi." target="_blank" rel="noopener" aria-label="WhatsApp DILUAR COST">WA</a>
       </div>
     </div>
@@ -1289,6 +1318,52 @@
           }
         });
       });
+    })();
+
+    // Language Switcher
+    (function initLanguageSwitcher() {
+      const STORAGE_KEY = 'diluar-cost-lang';
+      const DEFAULT_LANG = 'id';
+
+      function setLanguage(lang) {
+        if (lang !== 'id' && lang !== 'en') lang = DEFAULT_LANG;
+
+        // Update text content elements
+        document.querySelectorAll('[data-id][data-en]').forEach(el => {
+          if (el.hasAttribute('data-id-html') || el.hasAttribute('data-en-html')) return;
+          el.textContent = lang === 'id' ? el.getAttribute('data-id') : el.getAttribute('data-en');
+        });
+
+        // Update HTML content elements
+        document.querySelectorAll('[data-id-html][data-en-html]').forEach(el => {
+          el.innerHTML = lang === 'id' ? el.getAttribute('data-id-html') : el.getAttribute('data-en-html');
+        });
+
+        // Update active state on buttons
+        document.querySelectorAll('.lang-switch button').forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        });
+
+        // Store preference
+        try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+        document.documentElement.setAttribute('lang', lang === 'id' ? 'id' : 'en');
+      }
+
+      // Bind toggle buttons
+      document.querySelectorAll('.lang-switch button').forEach(btn => {
+        btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
+      });
+
+      // Load saved preference or URL hash/query parameter
+      let initialLang = DEFAULT_LANG;
+      const hashMatch = window.location.hash.match(/lang=(id|en)/);
+      const queryMatch = new URLSearchParams(window.location.search).get('lang');
+      if (hashMatch) initialLang = hashMatch[1];
+      else if (queryMatch) initialLang = queryMatch;
+      else {
+        try { initialLang = localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG; } catch (e) {}
+      }
+      setLanguage(initialLang);
     })();
   </script>
 
